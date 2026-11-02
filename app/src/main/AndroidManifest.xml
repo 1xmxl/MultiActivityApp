@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 通过隐式 Intent 调用系统相机，相机硬件声明为“可选” -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <!-- Android 11+ 的包可见性：声明本应用要查询能处理拍照请求的应用 -->
+    <queries>
+        <intent>
+            <action android:name="android.media.action.IMAGE_CAPTURE" />
+        </intent>
+    </queries>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MultiActivity">
+
+        <!-- 主 Activity -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 二级 Activity 1：显示接收到的参数 -->
+        <activity
+            android:name=".ForwardActivity"
+            android:exported="false" />
+
+        <!-- 二级 Activity 2：输入内容并返回结果 -->
+        <activity
+            android:name=".InputReturnActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- 二级 Activity 3：隐式调用系统相机拍照 -->
+        <activity
+            android:name=".CameraActivity"
+            android:exported="false" />
+
+        <!-- 二级 Activity 4：秒表（横竖屏切换时通过 onSaveInstanceState 恢复计时） -->
+        <activity
+            android:name=".StopWatchActivity"
+            android:exported="false" />
+
+        <!-- 拍照时把缓存目录里的图片以 content:// 形式提供给相机应用 -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+    </application>
+
+</manifest>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 应用标题：姓名 + 学号 -->
+    <string name="app_name">龚涛 2024110509</string>
+
+    <!-- ==================== 主界面 ==================== -->
+    <string name="main_title">多 Activity 实验</string>
+    <string name="main_subtitle">Intent 传参 · 返回结果 · 隐式调用相机 · 秒表</string>
+    <string name="btn_forward">① 正向传参（第 1 个二级 Activity）</string>
+    <string name="btn_input_return">② 输入并返回结果（第 2 个二级 Activity）</string>
+    <string name="btn_camera">③ 隐式调用相机拍照（第 3 个二级 Activity）</string>
+    <string name="btn_stopwatch">④ 秒表（第 4 个二级 Activity）</string>
+    <string name="label_returned">第 2 个 Activity 返回的结果</string>
+    <string name="result_empty">（还没有返回结果）</string>
+    <string name="label_lifecycle">MainActivity 生命周期记录</string>
+    <string name="lifecycle_log_placeholder">（暂无记录）</string>
+
+    <!-- 生命周期回调名称 -->
+    <string name="lifecycle_on_create">onCreate()</string>
+    <string name="lifecycle_on_start">onStart()</string>
+    <string name="lifecycle_on_resume">onResume()</string>
+    <string name="lifecycle_on_pause">onPause()</string>
+    <string name="lifecycle_on_stop">onStop()</string>
+    <string name="lifecycle_on_destroy">onDestroy()</string>
+
+    <!-- 日志格式与操作记录 -->
+    <string name="log_time_pattern" translatable="false">HH:mm:ss</string>
+    <string name="log_line_format">%1$s  %2$s</string>
+    <string name="log_result_received">收到返回结果：%1$s</string>
+    <string name="log_start_forward">启动 ForwardActivity（正向传参）</string>
+    <string name="log_start_input">启动 InputReturnActivity（等待返回结果）</string>
+    <string name="log_start_camera">启动 CameraActivity（隐式调用相机）</string>
+    <string name="log_start_stopwatch">启动 StopWatchActivity（秒表）</string>
+
+    <!-- Intent 传参用的 key（内部协议，不需要翻译） -->
+    <string name="extra_key_forward" translatable="false">extra_forward_text</string>
+    <string name="extra_key_return" translatable="false">extra_return_text</string>
+
+    <!-- ==================== 二级 Activity 1：正向传参 ==================== -->
+    <string name="forward_title">第 1 个二级 Activity</string>
+    <string name="forward_desc">下面这段文字是主界面用 Intent 的 putExtra 传过来的，本页面用 getStringExtra 取出后显示：</string>
+    <string name="forward_sample_text">你好，这是从 MainActivity 通过 Intent 正向传递过来的参数。</string>
+    <string name="forward_no_extra">没有收到任何参数</string>
+    <string name="forward_length_format">共 %1$d 个字符</string>
+    <string name="btn_back">返回主界面</string>
+
+    <!-- ==================== 二级 Activity 2：输入并返回 ==================== -->
+    <string name="input_return_title">第 2 个二级 Activity</string>
+    <string name="input_return_desc">输入内容后点「确定」，内容会通过 setResult 返回主界面并显示出来。</string>
+    <string name="input_return_hint">请输入要返回给主界面的内容</string>
+    <string name="btn_confirm">确定</string>
+    <string name="btn_cancel">取消</string>
+    <string name="toast_input_required">请先输入内容</string>
+
+    <!-- ==================== 二级 Activity 3：隐式调用相机 ==================== -->
+    <string name="camera_title">第 3 个二级 Activity</string>
+    <string name="camera_desc">点击下方按钮会用隐式 Intent（ACTION_IMAGE_CAPTURE）启动系统相机，拍照完成后回到本页面显示照片。</string>
+    <string name="btn_take_photo">拍照</string>
+    <string name="camera_hint">还没有照片，点「拍照」试试</string>
+    <string name="camera_success">拍照成功，已显示照片</string>
+    <string name="camera_cancelled">已取消拍照</string>
+    <string name="camera_not_available">没有找到可用的相机应用</string>
+    <string name="camera_load_failed">照片加载失败</string>
+
+    <!-- 拍照相关的技术常量（不需要翻译） -->
+    <string name="camera_photo_dir" translatable="false">photos</string>
+    <string name="camera_photo_prefix" translatable="false">photo_</string>
+    <string name="camera_photo_suffix" translatable="false">.jpg</string>
+    <string name="file_provider_suffix" translatable="false">.fileprovider</string>
+
+    <!-- ==================== 二级 Activity 4：秒表 ==================== -->
+    <string name="stopwatch_title">第 4 个二级 Activity：秒表</string>
+    <string name="stopwatch_hint">开始计时后旋转屏幕，计时会接着走，不会归零。</string>
+    <string name="stopwatch_time_format">%1$02d:%2$02d.%3$02d</string>
+    <string name="btn_start">开始</string>
+    <string name="btn_pause">暂停</string>
+    <string name="btn_reset">重置</string>
+</resources>
